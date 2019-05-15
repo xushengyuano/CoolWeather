@@ -73,7 +73,7 @@ public class ProvinceActivity extends AppCompatActivity {
         String weatherUrl = currentlevel == PROVINCE ? "http://guolin.tech/api/china":(currentlevel==CITY?"http://guolin.tech/api/china/" + provinceId :"http://guolin.tech/api/china/" + provinceId+"/"+cityId);
         //    String weatherUrl = "http://guolin.tech/api/china";
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
-            @Override
+            @Override //1
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText = response.body().string();
                 parseJSONObject(responseText);
